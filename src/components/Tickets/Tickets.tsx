@@ -43,17 +43,18 @@ const Tickets: FC = () => {
     <div className={styles.flights}>
       {isLoading && <Loader />}
       {!filteredTicketsByClass.length ? <TicketsIsNotFound /> : ""}
-      {tickets.length &&
-        displayedTickets.map((ticket: FlightFilteredClass, idx: number) => {
-          return (
-            <Ticket
-              key={idx}
-              price={ticket.price}
-              carrier={ticket.carrier}
-              segments={ticket.segments}
-            />
-          );
-        })}
+      {tickets.length
+        ? displayedTickets.map((ticket: FlightFilteredClass, idx: number) => {
+            return (
+              <Ticket
+                key={idx}
+                price={ticket.price}
+                carrier={ticket.carrier}
+                segments={ticket.segments}
+              />
+            );
+          })
+        : ""}
     </div>
   );
 };
