@@ -42,7 +42,7 @@ const Tickets: FC = () => {
   return (
     <div className={styles.flights}>
       {isLoading && <Loader />}
-      {!filteredTicketsByClass.length && <TicketsIsNotFound />}
+      {!filteredTicketsByClass.length ? <TicketsIsNotFound /> : ""}
       {tickets.length &&
         displayedTickets.map((ticket: FlightFilteredClass, idx: number) => {
           return (
