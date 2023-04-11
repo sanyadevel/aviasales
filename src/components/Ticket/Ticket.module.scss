@@ -1,0 +1,35 @@
+.flight {
+  width: 502px;
+  height: 184px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: block;
+  margin:35px auto 0 auto;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin: -10px 20px;
+    padding-top: 17px;
+    &--price {
+      color: #2196f3;
+    }
+    &--flyCompany {
+    }
+  }
+  &__table {
+    width: 100%;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 18px;
+
+    &--tHeadtBodyTr {
+      color: #a0b0b9;
+      font-size: 15px;
+    }
+
+    &--tbody {
+      transform: translateY(15px);
+    }
+  }
+}

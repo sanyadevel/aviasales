@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from "react";
 
-function App() {
+import Header from "./components/Header";
+import FlightTransfers from "./components/FlightTransfers";
+import FlightClasses from "./components/FlightClasses";
+import MoreTicketsButton from "./components/MoreTicketsButton";
+import Tickets from "./components/Tickets";
+import { useTypedSelector } from "./hooks/useTypedSelector";
+import appStyles from "./App.module.scss";
+
+const App: FC = () => {
+  const { filteredTicketsByClass, tickets } = useTypedSelector(
+    (state) => state.ticketsData
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className={
+        filteredTicketsByClass.length
+          ? appStyles.container
+          : appStyles["container-noTickets"]
+      }
+    >
+      <Header />
+      <div className={appStyles.main}>
+        <FlightTransfers />
+        <div className={appStyles["main__content"]}>
+          {tickets.length ? <FlightClasses /> : ""}
+          <Tickets />
+          {filteredTicketsByClass.length ? <MoreTicketsButton /> : ""}
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

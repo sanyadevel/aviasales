@@ -1,0 +1,36 @@
+@import-normalize;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  background-color: #f3f7fa;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+.container-noTickets {
+  height: 1050px;
+  background-color: #f3f7fa;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  margin:0 auto;
+  justify-content: center;
+
+}
