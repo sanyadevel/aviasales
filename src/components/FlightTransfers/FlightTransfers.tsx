@@ -65,7 +65,6 @@ const FlightTransfers: FC = () => {
             ticket.segments[0].stops.length === 0 &&
             ticket.segments[1].stops.length === 0
         );
-        console.log(filteredTickets);
         break;
 
       case "3":
