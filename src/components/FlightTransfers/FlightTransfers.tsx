@@ -60,34 +60,35 @@ const FlightTransfers: FC = () => {
 
     switch (id) {
       case "2":
-        filteredTickets = tickets.filter((ticket) =>
-          ticket.segments.some(
-            (segment: { stops: string | any[] }) => segment.stops.length === 0
-          )
+        filteredTickets = tickets.filter(
+          (ticket) =>
+            ticket.segments[0].stops.length === 0 &&
+            ticket.segments[1].stops.length === 0
         );
+        console.log(filteredTickets);
         break;
 
       case "3":
-        filteredTickets = tickets.filter((ticket) =>
-          ticket.segments.some(
-            (segment: { stops: string | any[] }) => segment.stops.length === 1
-          )
+        filteredTickets = tickets.filter(
+          (ticket) =>
+            ticket.segments[0].stops.length === 1 &&
+            ticket.segments[1].stops.length === 1
         );
         break;
 
       case "4":
-        filteredTickets = tickets.filter((ticket) =>
-          ticket.segments.some(
-            (segment: { stops: string | any[] }) => segment.stops.length === 2
-          )
+        filteredTickets = tickets.filter(
+          (ticket) =>
+            ticket.segments[0].stops.length === 2 &&
+            ticket.segments[1].stops.length === 2
         );
         break;
 
       case "5":
-        filteredTickets = tickets.filter((ticket) =>
-          ticket.segments.some(
-            (segment: { stops: string | any[] }) => segment.stops.length === 3
-          )
+        filteredTickets = tickets.filter(
+          (ticket) =>
+            ticket.segments[0].stops.length === 3 &&
+            ticket.segments[1].stops.length === 3
         );
         break;
 
