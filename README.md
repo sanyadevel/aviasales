@@ -1,1 +1,1 @@
-https://aviasales-ruby-seven.vercel.app/
+https://aviasales-sanyadevel.vercel.app/
