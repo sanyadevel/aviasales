@@ -24,12 +24,16 @@ const FlightTransfers: FC = () => {
   const dispatch = useDispatch();
   const [checkedValues, setCheckedValues] = useState<any[]>([]);
 
+  useEffect(() => {
+    setCheckedValues([...tickets]);
+  }, [tickets]);
+
   const [options, setOptions] = useState<flightOptions[]>([
-    { label: "Все", id: 1, isChecked: true },
-    { label: "Без пересадок", id: 2, isChecked: true },
-    { label: "1 пересадка", id: 3, isChecked: true },
-    { label: "2 пересадки", id: 4, isChecked: true },
-    { label: "3 пересадки", id: 5, isChecked: true },
+    { label: "Все", id: 4, isChecked: true },
+    { label: "Без пересадок", id: 0, isChecked: true },
+    { label: "1 пересадка", id: 1, isChecked: true },
+    { label: "2 пересадки", id: 2, isChecked: true },
+    { label: "3 пересадки", id: 3, isChecked: true },
   ]);
 
   const getCheckedStatus = (checked: boolean, id: string): void => {
@@ -41,14 +45,14 @@ const FlightTransfers: FC = () => {
     );
 
     if (!checked) {
-      if (id === "1" && !checked) {
+      if (id === "4" && !checked) {
         setOptions(options.map((option) => ({ ...option, isChecked: false })));
       }
       // If a checkbox is unchecked, check if the "Все" option should also be unchecked
-      if (id !== "1" && options[0].isChecked) {
+      if (id !== "4" && options[0].isChecked) {
         setOptions((prevCheckboxes: flightOptions[]) =>
           options.map((option) =>
-            option.id === 1 || option.id === Number(id)
+            option.id === 4 || option.id === Number(id)
               ? { ...option, isChecked: false }
               : option
           )
@@ -56,7 +60,7 @@ const FlightTransfers: FC = () => {
       }
     } else {
       // If a checkbox is checked, check if all other options are checked, if so, check the "Все" option as well
-      if (id === "1" && checked) {
+      if (id === "4" && checked) {
         // set all options to isChecked = true
         setOptions(options.map((option) => ({ ...option, isChecked: true })));
       }
@@ -67,33 +71,33 @@ const FlightTransfers: FC = () => {
     let filteredTickets: any[] = [];
 
     switch (id) {
+      case "0":
+        filteredTickets = tickets.filter((ticket) =>
+          ticket.segments.some(
+            (segment: flightSegment) => segment.stops.length === 0
+          )
+        );
+        break;
+
+      case "1":
+        filteredTickets = tickets.filter((ticket) =>
+          ticket.segments.some(
+            (segment: flightSegment) => segment.stops.length === 1
+          )
+        );
+        break;
+
       case "2":
         filteredTickets = tickets.filter((ticket) =>
-          ticket.segments.every(
-            (segment: flightSegment) => segment.stops.length === 0
+          ticket.segments.some(
+            (segment: flightSegment) => segment.stops.length === 2
           )
         );
         break;
 
       case "3":
         filteredTickets = tickets.filter((ticket) =>
-          ticket.segments.every(
-            (segment: flightSegment) => segment.stops.length === 1
-          )
-        );
-        break;
-
-      case "4":
-        filteredTickets = tickets.filter((ticket) =>
-          ticket.segments.every(
-            (segment: flightSegment) => segment.stops.length === 2
-          )
-        );
-        break;
-
-      case "5":
-        filteredTickets = tickets.filter((ticket) =>
-          ticket.segments.every(
+          ticket.segments.some(
             (segment: flightSegment) => segment.stops.length === 3
           )
         );
