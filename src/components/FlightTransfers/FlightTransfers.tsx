@@ -72,34 +72,26 @@ const FlightTransfers: FC = () => {
 
     switch (id) {
       case "0":
-        filteredTickets = tickets.filter((ticket) =>
-          ticket.segments.some(
-            (segment: flightSegment) => segment.stops.length === 0
-          )
+        filteredTickets = tickets.filter(
+          (ticket) => ticket.segments[0].stops.length === 0
         );
         break;
 
       case "1":
-        filteredTickets = tickets.filter((ticket) =>
-          ticket.segments.some(
-            (segment: flightSegment) => segment.stops.length === 1
-          )
+        filteredTickets = tickets.filter(
+          (ticket) => ticket.segments[0].stops.length === 1
         );
         break;
 
       case "2":
-        filteredTickets = tickets.filter((ticket) =>
-          ticket.segments.some(
-            (segment: flightSegment) => segment.stops.length === 2
-          )
+        filteredTickets = tickets.filter(
+          (ticket) => ticket.segments[0].stops.length === 2
         );
         break;
 
       case "3":
-        filteredTickets = tickets.filter((ticket) =>
-          ticket.segments.some(
-            (segment: flightSegment) => segment.stops.length === 3
-          )
+        filteredTickets = tickets.filter(
+          (ticket) => ticket.segments[0].stops.length === 3
         );
         break;
 
