@@ -42,6 +42,8 @@ label {
   line-height: 20px;
   font-size: 14px;
   color: rgba(74, 74, 74, 1);
+  width: 232px;
+  margin-left: -20px;
 }
 .real-checkbox {
   width: 0;
@@ -62,6 +64,7 @@ label {
   vertical-align: middle;
   margin-right: 5px;
   position: relative;
+  margin-left:20px;
 }
 .custom-checkbox:hover {
   border: 2px solid rgba(33, 150, 243, 1);
