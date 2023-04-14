@@ -34,16 +34,17 @@ label {
   display: flex;
   flex-direction: column;
   margin-left: 20px;
+  margin-top: -7px;
 }
 
 .checkbox-label-title {
-  margin-bottom: 20px;
   font-weight: 400;
   line-height: 20px;
   font-size: 14px;
   color: rgba(74, 74, 74, 1);
   width: 232px;
   margin-left: -20px;
+  height: 38px;
 }
 .real-checkbox {
   width: 0;
